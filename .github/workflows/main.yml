@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: datfinesoul/sample-action@v2
+      uses: datfinesoul/sample-action@v0.0.1
       with:
         who-to-greet: 'BooBoo'
     # Use the output from the `hello` step
