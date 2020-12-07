@@ -1,15 +1,21 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  somename:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Upload GDS data to Sumo Logic
     steps:
-    - name: Hello world action step
+    - name: Checkout code
+      id: checkout
+      uses: actions/checkout@v2
+      with:
+        ref: 'main'
+    - name: Populate Sumo Logic Lookup
       id: hello
-      uses: datfinesoul/sample-action@v0.0.2
+      uses: datfinesoul/sample-action@v0.0.3
       with:
         who-to-greet: 'BooBoo'
+        sumologic_config: ${{ secrets.SUMOLOGIC_TEST_SECRET }}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
