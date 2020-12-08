@@ -19,6 +19,7 @@ jobs:
         #ref: 'main'
     - name: Populate Sumo Logic Lookup
       id: upload
-      uses: datfinesoul/sample-action@v0.0.5
+      uses: datfinesoul/sample-action@v0.0.6
       with:
         sumologic_config: ${{ secrets.SUMO_LOGIC_API_ACCESS_SECRET }}
+        cluster: p01
