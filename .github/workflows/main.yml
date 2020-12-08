@@ -1,4 +1,11 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - 'simulate/**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   somename:
@@ -8,13 +15,10 @@ jobs:
     - name: Checkout code
       id: checkout
       uses: actions/checkout@v2
-      with:
-        ref: 'main'
+      #with:
+        #ref: 'main'
     - name: Populate Sumo Logic Lookup
       id: upload
-      uses: datfinesoul/sample-action@v0.0.4
+      uses: datfinesoul/sample-action@v0.0.5
       with:
         sumologic_config: ${{ secrets.SUMO_LOGIC_API_ACCESS_SECRET }}
-    # Use the output from the `hello` step
-    #- name: Get the output time
-      #run: echo "The time was ${{ steps.hello.outputs.time }}"
