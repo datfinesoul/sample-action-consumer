@@ -11,11 +11,10 @@ jobs:
       with:
         ref: 'main'
     - name: Populate Sumo Logic Lookup
-      id: hello
-      uses: datfinesoul/sample-action@v0.0.3
+      id: upload
+      uses: datfinesoul/sample-action@v0.0.4
       with:
-        who-to-greet: 'BooBoo'
-        sumologic_config: ${{ secrets.SUMOLOGIC_TEST_SECRET }}
+        sumologic_config: ${{ secrets.SUMO_LOGIC_API_ACCESS_SECRET }}
     # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+    #- name: Get the output time
+      #run: echo "The time was ${{ steps.hello.outputs.time }}"
